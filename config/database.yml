@@ -82,5 +82,6 @@ test:
 production:
   <<: *default
   database: SteamCatalog_production
-  username: SteamCatalog
-  password: <%= ENV["STEAMCATALOG_DATABASE_PASSWORD"] %>
+  username: postgres
+  password:
+#  password: <%= ENV["STEAMCATALOG_DATABASE_PASSWORD"] %>
