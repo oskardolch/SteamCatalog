@@ -1,4 +1,37 @@
-apt-get install git libpq-dev libffi-dev libyaml-dev
+$ su -
+# apt-get install sudo
+# adduser postgres sudo
+
+$ sudo apt-get install ftp
+
+$ sudo apt-get install git
+$ sudo apt-get install libreadline-dev openssl libssl-dev
+
+$ sudo apt-get install apache2 apache2-dev
+$ sudo apt-get install libapache2-mod-passenger
+$ sudo apt-get install libapache2-mod-xsendfile
+
+$ sudo apt-get install git libpq-dev libffi-dev libyaml-dev
+$ sudo apt-get install zlib1g zlib1g-dev
+$ sudo apt-get install sqlite3 libsqlite3-dev
+
+$ sudo apt-get install postgresql-11-postgis
+
+$ cd ~
+$ mkdir Programs
+$ cd Programs
+$ wget https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.2.tar.gz
+$ tar -zxf ruby-3.2.2.tar.gz
+$ cd ruby-3.2.2
+$ ./configure
+$ make
+$ sudo make install
+
+$ sudo gem install rails
+
+$ sudo chmod -R 777 /var/www
+$ cd /var/www
+$ git clone https://github.com/oskardolch/SteamCatalog.git
 
 rails new SteamCatalog -d postgresql
 edit config/database.yml and change postgres user
