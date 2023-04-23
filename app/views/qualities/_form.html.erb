@@ -1,0 +1,17 @@
+<%= form_with model: [ @quality ] do |form| %>
+  <p>
+    <%= form.label :name, t('quality.name') %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :desc, t('quality.desc') %><br>
+    <%= form.text_area :desc %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <p>
+    <%= link_to t('quality.back'), qualities_url %>
+  </p>
+<% end %>
+

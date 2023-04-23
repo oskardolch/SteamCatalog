@@ -1,0 +1,45 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  engine: one
+  series: MyString
+  name: MyString
+  literature: one
+  volume: MyString
+  number: MyString
+  year: MyString
+  page: MyString
+  view: one
+  quality: one
+  date: MyString
+  location: MyText
+  tender: 1
+  tender_series: MyString
+  detail: 1
+  user: one
+  operator: one
+  maker: one
+  private: false
+  note: MyText
+
+two:
+  engine: two
+  series: MyString
+  name: MyString
+  literature: two
+  volume: MyString
+  number: MyString
+  year: MyString
+  page: MyString
+  view: two
+  quality: two
+  date: MyString
+  location: MyText
+  tender: 1
+  tender_series: MyString
+  detail: 1
+  user: two
+  operator: two
+  maker: two
+  private: false
+  note: MyText

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  class_no: MyString
+  name: MyString
+  operator: one
+  engine_type: one
+  alternate_for: 1
+
+two:
+  class_no: MyString
+  name: MyString
+  operator: two
+  engine_type: two
+  alternate_for: 1

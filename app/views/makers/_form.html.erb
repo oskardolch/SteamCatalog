@@ -1,0 +1,25 @@
+<%= form_with model: [ @maker ] do |form| %>
+  <p>
+    <%= form.label :name, t('maker.name') %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :desc, t('maker.desc') %><br>
+    <%= form.text_area :desc %>
+  </p>
+  <p>
+    <%= form.label :location, t('maker.location') %><br>
+    <%= form.text_area :location %>
+  </p>
+  <p>
+    <%= form.label :note, t('app.note') %><br>
+    <%= form.text_area :note %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <p>
+    <%= link_to t('maker.back'), makers_url %>
+  </p>
+<% end %>
+

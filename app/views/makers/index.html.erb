@@ -1,0 +1,36 @@
+<h1><%= t("maker.makers") %></h1>
+
+<%= link_to t('maker.new'), new_maker_url %>
+
+<table>
+  <tr>
+    <th><%= t('maker.name') %></th>
+    <th><%= t('maker.desc') %></th>
+    <th><%= t('maker.location') %></th>
+    <th><%= t('maker.edit') %></th>
+    <th></th>
+  </tr>
+  <% @makers.each do |maker| %>
+    <tr>
+      <td>
+        <%= maker.name %>
+      </td>
+      <td>
+        <%= maker.desc %>
+      </td>
+      <td>
+        <%= maker.location %>
+      </td>
+      <td>
+        <%= link_to maker.name, edit_maker_url(maker.id) %>
+      </td>
+      <td>
+        <%= link_to t('app.delete'), maker_url(maker.id), data: {
+          method: :delete,
+          confirm: t('app.confirm')
+        } %>
+      </td>
+    </tr>
+  <% end %>
+<table>
+

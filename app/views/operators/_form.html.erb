@@ -1,0 +1,21 @@
+<%= form_with model: [ @operator ] do |form| %>
+  <p>
+    <%= form.label :name, t('operator.name') %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :desc, t('operator.desc') %><br>
+    <%= form.text_area :desc %>
+  </p>
+  <p>
+    <%= form.label :note, t('app.note') %><br>
+    <%= form.text_area :note %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <p>
+    <%= link_to t('operator.back'), operators_url %>
+  </p>
+<% end %>
+

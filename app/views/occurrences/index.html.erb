@@ -1,0 +1,52 @@
+<h1><%= t("occurrence.occurrences") %></h1>
+
+<%= link_to t('occurrence.new'), new_occurrence_url %>
+
+<table>
+  <tr>
+    <th><%= t('occurrence.class') %></th>
+    <th><%= t('occurrence.series') %></th>
+    <th><%= t('occurrence.name') %></th>
+    <th><%= t('occurrence.literature') %></th>
+    <th><%= t('occurrence.view') %></th>
+    <th><%= t('occurrence.quality') %></th>
+    <th><%= t('occurrence.date') %></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @occurrences.each do |occurrence| %>
+    <tr>
+      <td>
+        <%= occurrence.engine.nil? ? "" : occurrence.engine.class_no %>
+      </td>
+      <td>
+        <%= occurrence.series %>
+      </td>
+      <td>
+        <%= occurrence.name %>
+      </td>
+      <td>
+        <%= occurrence.literature.nil? ? "" : occurrence.literature.title %>
+      </td>
+      <td>
+        <%= occurrence.view.nil? ? "" : occurrence.view.name %>
+      </td>
+      <td>
+        <%= occurrence.quality.nil? ? "" : occurrence.quality.name %>
+      </td>
+      <td>
+        <%= occurrence.date %>
+      </td>
+      <td>
+        <%= link_to t('app.edit'), edit_occurrence_url(occurrence.id) %>
+      </td>
+      <td>
+        <%= link_to t('app.delete'), occurrence_url(occurrence.id), data: {
+          method: :delete,
+          confirm: t('app.confirm')
+        } %>
+      </td>
+    </tr>
+  <% end %>
+<table>
+

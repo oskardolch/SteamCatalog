@@ -1,0 +1,32 @@
+<h1><%= t("quality.qualities") %></h1>
+
+<%= link_to t('quality.new'), new_quality_url %>
+
+<table>
+  <tr>
+    <th><%= t('quality.name') %></th>
+    <th><%= t('quality.desc') %></th>
+    <th><%= t('quality.edit') %></th>
+    <th></th>
+  </tr>
+  <% @qualities.each do |quality| %>
+    <tr>
+      <td>
+        <%= quality.name %>
+      </td>
+      <td>
+        <%= quality.desc %>
+      </td>
+      <td>
+        <%= link_to quality.name, edit_quality_url(quality.id) %>
+      </td>
+      <td>
+        <%= link_to t('app.delete'), quality_url(quality.id), data: {
+          method: :delete,
+          confirm: t('app.confirm')
+        } %>
+      </td>
+    </tr>
+  <% end %>
+<table>
+

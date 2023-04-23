@@ -1,0 +1,32 @@
+<h1><%= t("editor.editors") %></h1>
+
+<%= link_to t('editor.new'), new_editor_url %>
+
+<table>
+  <tr>
+    <th><%= t('editor.name') %></th>
+    <th><%= t('editor.desc') %></th>
+    <th><%= t('editor.edit') %></th>
+    <th></th>
+  </tr>
+  <% @editors.each do |editor| %>
+    <tr>
+      <td>
+        <%= editor.name %>
+      </td>
+      <td>
+        <%= editor.desc %>
+      </td>
+      <td>
+        <%= link_to editor.name, edit_editor_url(editor.id) %>
+      </td>
+      <td>
+        <%= link_to t('app.delete'), editor_url(editor.id), data: {
+          method: :delete,
+          confirm: t('app.confirm')
+        } %>
+      </td>
+    </tr>
+  <% end %>
+<table>
+

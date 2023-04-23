@@ -1,0 +1,182 @@
+<%= form_tag(search_url) do %>
+  <table style = "">
+    <tr>
+      <td class="nolines">
+        <p>
+          <%= label_tag('engine_id', t('occurrence.class')) %><br>
+          <%= select_tag('engine_id', options_for_select(engines_list, $serach_params['engine_id']), { include_blank: true }) %>
+        </p>
+        <p>
+          <%= label_tag('series', t('occurrence.series')) %><br>
+          <%= text_field_tag('series', $serach_params['series']) %>
+        </p>
+        <p>
+          <%= label_tag('name', t('occurrence.name')) %><br>
+          <%= text_field_tag('name', $serach_params['name']) %>
+        </p>
+        <p>
+          <%= label_tag('literature_id', t('occurrence.literature')) %><br>
+          <%= select_tag('literature_id', options_for_select(literatures_list, $serach_params['literature_id']), { include_blank: true }) %>
+        </p>
+        <p>
+          <%= label_tag('volume', t('occurrence.volume')) %><br>
+          <%= text_field_tag('volume', $serach_params['volume']) %>
+        </p>
+        <p>
+          <%= label_tag('number', t('occurrence.number')) %><br>
+          <%= text_field_tag('number', $serach_params['number']) %>
+        </p>
+      </td>
+      <td class="nolines">
+        <p>
+          <%= label_tag('year', t('occurrence.year')) %><br>
+          <%= text_field_tag('year', $serach_params['year']) %>
+        </p>
+        <p>
+          <%= label_tag('page', t('occurrence.page')) %><br>
+          <%= text_field_tag('page', $serach_params['page']) %>
+        </p>
+        <p>
+          <%= label_tag('view_id', t('occurrence.view')) %><br>
+          <%= select_tag('view_id', options_for_select(views_list, $serach_params['view_id']), { include_blank: true }) %>
+        </p>
+        <p>
+          <%= label_tag('quality_id', t('occurrence.quality')) %><br>
+          <%= select_tag('quality_id', options_for_select(qualities_list, $serach_params['quality_id']), { include_blank: true }) %>
+        </p>
+        <p>
+          <%= label_tag('date', t('occurrence.date')) %><br>
+          <%= text_field_tag('date', $serach_params['date']) %>
+        </p>
+        <p>
+          <%= label_tag('location', t('occurrence.location')) %><br>
+          <%= text_area_tag('location', $serach_params['location']) %>
+        </p>
+      </td>
+      <td class="nolines">
+        <p>
+          <%= label_tag('tender', t('occurrence.tender')) %><br>
+          <%= select_tag('tender', options_for_select(engines_list, $serach_params['tender']), { include_blank: true }) %>
+        </p>
+        <p>
+          <%= label_tag('tender_series', t('occurrence.tender_series')) %><br>
+          <%= text_field_tag('tender_series', $serach_params['tender_series']) %>
+        </p>
+        <p>
+          <%= label_tag('detail', t('occurrence.detail')) %><br>
+          <%= select_tag('detail', options_for_select(accessories_list, $serach_params['detail']), { include_blank: true }) %>
+        </p>
+        <p>
+          <%= label_tag('operator_id', t('occurrence.operator')) %><br>
+          <%= select_tag('operator_id', options_for_select(operators_list, $serach_params['operator_id']), { include_blank: true }) %>
+        </p>
+        <p>
+          <%= label_tag('maker_id', t('occurrence.maker')) %><br>
+          <%= select_tag('maker_id', options_for_select(makers_list, $serach_params['maker_id']), { include_blank: true }) %>
+        </p>
+        <% unless $current_user.nil? %>
+          <p>
+            <% if $serach_params['private']=='on' || $serach_params['private']=='1' %>
+              <%= check_box_tag('private', '1', checked:true) %>
+            <% else %>
+              <%= check_box_tag('private') %>
+            <% end %>
+            <%= label_tag('private', t('occurrence.private')) %>
+          </p>
+        <% end %>
+        <p>
+          <% if $serach_params['synonyms']=='on' || $serach_params['synonyms']=='1' %>
+            <%= check_box_tag('synonyms', '1', checked:true) %>
+          <% else %>
+            <%= check_box_tag('synonyms') %>
+          <% end %>
+          <%= label_tag('synonyms', t('search.synonyms')) %>
+        </p>
+        <p>
+          <%= submit_tag(t('search.find')) %>
+        </p>
+        <p>
+          <%= link_to t('search.clear'), search_clear_url %>
+        </p>
+      </td>
+    </tr>
+  <table>
+<% end %>
+
+<table>
+  <tr>
+    <th><%= t('occurrence.class') %></th>
+    <th><%= t('occurrence.series') %></th>
+    <th><%= t('occurrence.tender') %></th>
+    <th><%= t('occurrence.tender_series') %></th>
+    <th><%= t('occurrence.literature') %></th>
+    <th><%= t('occurrence.volume') %></th>
+    <th><%= t('occurrence.number') %></th>
+    <th><%= t('occurrence.year') %></th>
+    <th><%= t('occurrence.page') %></th>
+    <th><%= t('occurrence.view') %></th>
+    <th><%= t('occurrence.quality') %></th>
+    <th><%= t('occurrence.name') %></th>
+    <th><%= t('occurrence.detail') %></th>
+    <th><%= t('occurrence.date') %></th>
+    <th><%= t('occurrence.location') %></th>
+    <th><%= t('occurrence.operator') %></th>
+    <th><%= t('occurrence.maker') %></th>
+  </tr>
+  <% $search_result.each do |occurrence| %>
+    <tr>
+      <td>
+        <%= occurrence.engine.nil? ? "" : occurrence.engine.class_no %>
+      </td>
+      <td>
+        <%= occurrence.series %>
+      </td>
+      <td>
+        <%= occurrence.tender_obj.nil? ? "" : occurrence.tender_obj.class_no %>
+      </td>
+      <td>
+        <%= occurrence.tender_series %>
+      </td>
+      <td>
+        <%= occurrence.literature.nil? ? "" : occurrence.literature.title %>
+      </td>
+      <td>
+        <%= occurrence.volume %>
+      </td>
+      <td>
+        <%= occurrence.number %>
+      </td>
+      <td>
+        <%= occurrence.year %>
+      </td>
+      <td>
+        <%= occurrence.page %>
+      </td>
+      <td>
+        <%= occurrence.view.nil? ? "" : occurrence.view.name %>
+      </td>
+      <td>
+        <%= occurrence.quality.nil? ? "" : occurrence.quality.name %>
+      </td>
+      <td>
+        <%= occurrence.name %>
+      </td>
+      <td>
+        <%= occurrence.detail_obj.nil? ? "" : occurrence.detail_obj.name %>
+      </td>
+      <td>
+        <%= occurrence.date %>
+      </td>
+      <td>
+        <%= occurrence.location %>
+      </td>
+      <td>
+        <%= occurrence.operator.nil? ? "" : occurrence.operator.name %>
+      </td>
+      <td>
+        <%= occurrence.maker.nil? ? "" : occurrence.maker.name %>
+      </td>
+    </tr>
+  <% end %>
+<table>
+

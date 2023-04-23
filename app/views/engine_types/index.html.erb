@@ -1,0 +1,32 @@
+<h1><%= t("engine_type.engine_types") %></h1>
+
+<%= link_to t('engine_type.new'), new_engine_type_url %>
+
+<table>
+  <tr>
+    <th><%= t('engine_type.name') %></th>
+    <th><%= t('engine_type.desc') %></th>
+    <th><%= t('engine_type.edit') %></th>
+    <th></th>
+  </tr>
+  <% @engine_types.each do |engine_type| %>
+    <tr>
+      <td>
+        <%= engine_type.name %>
+      </td>
+      <td>
+        <%= engine_type.desc %>
+      </td>
+      <td>
+        <%= link_to engine_type.name, edit_engine_type_url(engine_type.id) %>
+      </td>
+      <td>
+        <%= link_to t('app.delete'), engine_type_url(engine_type.id), data: {
+          method: :delete,
+          confirm: t('app.confirm')
+        } %>
+      </td>
+    </tr>
+  <% end %>
+<table>
+

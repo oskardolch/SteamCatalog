@@ -1,0 +1,36 @@
+<header class="navbar navbar-light bg-light">
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav navbar-left">
+        <% if $current_user %>
+          <li><%= link_to t('search.show'), root_url %></li>
+          <li><%= link_to t('occurrence.occurrences'), occurrences_url %></li>
+          <li><%= link_to t('editor.editors'), editors_url %></li>
+          <li><%= link_to t('maker.makers'), makers_url %></li>
+          <li><%= link_to t('operator.operators'), operators_url %></li>
+          <li><%= link_to t('quality.qualities'), qualities_url %></li>
+          <li><%= link_to t('view.views'), views_url %></li>
+          <li><%= link_to t('accessory.accessories'), accessories_url %></li>
+          <li><%= link_to t('literature.literatures'), literatures_url %></li>
+          <li><%= link_to t('engine_type.engine_types'), engine_types_url %></li>
+          <li><%= link_to t('engine.engines'), engines_url %></li>
+          <% if $current_user.admin %>
+            <li><%= link_to t('user.users'), users_url %></li>
+          <% else %>
+            <li><%= link_to t('user.preferences'), edit_user_url($current_user.id) %></li>
+          <% end %>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if $current_user.nil? %>
+        <li><%= link_to t('app.login'), logins_show_url %></li>
+        <% end %>
+        <% unless $current_user.nil? %>
+        <li><%= link_to t('app.logout'), logins_logout_url %></li>
+        <% end %>
+        <li><%= select_tag(:language, options_for_select([["Česky", "cs"], ["English", "en"]], I18n.default_locale.to_s), :onchange => "langCBChange(this.value);") %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+

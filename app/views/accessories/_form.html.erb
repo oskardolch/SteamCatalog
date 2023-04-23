@@ -1,0 +1,17 @@
+<%= form_with model: [ @accessory ] do |form| %>
+  <p>
+    <%= form.label :name, t('accessory.name') %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :maker_id, t('accessory.maker') %><br>
+    <%= form.select(:maker_id, makers_list, { include_blank: true }) %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <p>
+    <%= link_to t('accessory.back'), accessories_url %>
+  </p>
+<% end %>
+

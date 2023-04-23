@@ -1,0 +1,21 @@
+<%= form_with model: [ @literature ] do |form| %>
+  <p>
+    <%= form.label :title, t('literature.title') %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :year, t('literature.year') %><br>
+    <%= form.text_field :year %>
+  </p>
+  <p>
+    <%= form.label :editor_id, t('literature.editor') %><br>
+    <%= form.select(:editor_id, editors_list, { include_blank: true }) %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <p>
+    <%= link_to t('literature.back'), literatures_url %>
+  </p>
+<% end %>
+

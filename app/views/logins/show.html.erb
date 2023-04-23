@@ -1,0 +1,17 @@
+<%= form_with model: @user do |form| %>
+  <h1><%= t('app.welcome') %></h1>
+  <div>
+    <%= form.label t('user.name') %><br>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label t('user.password') %><br>
+    <%= form.password_field :password %>
+  </div>
+  <p>
+    <div>
+      <%= form.submit t('app.submit') %>
+    </div>
+  </p>
+<% end %>
+

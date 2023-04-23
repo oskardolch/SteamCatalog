@@ -1,0 +1,174 @@
+cs:
+  helpers:
+    submit:
+      user:
+        create: "Vytvořit uživatele"
+        update: "Uložit uživatele"
+      editor:
+        create: "Vytvořit vydavatele"
+        update: "Uložit vydavatele"
+      maker:
+        create: "Vytvořit výrobce"
+        update: "Uložit výrobce"
+      operator:
+        create: "Vytvořit provozovatele"
+        update: "Uložit provozovatele"
+      quality:
+        create: "Vytvořit kvalitu"
+        update: "Uložit kvalitu"
+      view:
+        create: "Vytvořit pohled"
+        update: "Uložit pohled"
+      accessory:
+        create: "Vytvořit součást"
+        update: "Uložit součást"
+      literature:
+        create: "Vytvořit literaturu"
+        update: "Uložit literaturu"
+      engine_type:
+        create: "Vytvořit typ stroje"
+        update: "Uložit typ stroje"
+      engine:
+        create: "Vytvořit stroj"
+        update: "Uložit stroj"
+      occurrence:
+        create: "Vytvořit výskyt"
+        update: "Uložit výskyt"
+      search:
+        create: "Vyhledat"
+      create: "Vytvořit %{model}"
+      update: "Uložit %{model}"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              taken: "Uživatel tohoto jména již existuje"
+            password_confirmation:
+              blank: "Potvrzení hesla je povinné"
+              confirmation: "Potvrzení hesla se neshoduje"
+  app:
+    title: "Parní Katalog"
+    welcome: "Vítejte"
+    login: "Přihlásit se"
+    logout: "Odhlásit se"
+    submit: "Pokračovat"
+    note: "Poznámka"
+    language: "Jazyk"
+    delete: "Odstranit"
+    confirm: "Odstranit?"
+    edit: "Upravit"
+    back_home: "Zpět na hlavní stránku"
+    login_required: "Ke zobrazení této stránky je nutné se přihlásit"
+    admin_required: "Ke zobrazení této stránky musíte být administrátor"
+  user:
+    users: "Uživatelé"
+    name: "Jméno"
+    password: "Heslo"
+    repeat_pwd: "Opakovat heslo"
+    new: "Přidat nového uživatele"
+    edit: "Upravit uživatele"
+    fullname: "Celé jméno"
+    admin: "Administrátor"
+    prefer_private: "Upřednostňovat soukromé záznamy"
+    back: "Zpět na seznam uživatelů"
+    preferences: "Nastavení uživatele"
+  editor:
+    editors: "Vydavatelé"
+    name: "Název"
+    desc: "Popis"
+    new: "Přidat nového vydavatele"
+    edit: "Upravit vydavatele"
+    back: "Zpět na seznam vydavatelů"
+  maker:
+    makers: "Výrobci"
+    name: "Název"
+    desc: "Popis"
+    location: "Místo"
+    new: "Přidat nového výrobce"
+    edit: "Upravit výrobce"
+    back: "Zpět na seznam výrobců"
+  operator:
+    operators: "Provozovatelé"
+    name: "Název"
+    desc: "Popis"
+    new: "Přidat nového provozovatele"
+    edit: "Upravit provozovatele"
+    back: "Zpět na seznam provozovatelů"
+  quality:
+    qualities: "Kvality"
+    name: "Název"
+    desc: "Popis"
+    new: "Přidat novou kvalitu"
+    edit: "Upravit kvalitu"
+    back: "Zpět na seznam kvalit"
+  view:
+    views: "Pohledy"
+    name: "Název"
+    desc: "Popis"
+    new: "Přidat nový pohled"
+    edit: "Upravit pohled"
+    back: "Zpět na seznam pohledů"
+  accessory:
+    accessories: "Součásti"
+    name: "Název"
+    maker: "Výrobce"
+    new: "Přidat novou součást"
+    edit: "Upravit souřást"
+    back: "Zpět na seznam součástí"
+  literature:
+    literatures: "Literatura"
+    title: "Titul"
+    year: "Rok"
+    editor: "Vydavatel"
+    new: "Přidat novou literaturu"
+    edit: "Upravit literaturu"
+    back: "Zpět na seznam literatury"
+  engine_type:
+    engine_types: "Typy strojů"
+    name: "Název"
+    desc: "Popis"
+    new: "Přidat nový typ stroje"
+    edit: "Upravit typ stroje"
+    back: "Zpět na seznam typů strojů"
+  engine:
+    engines: "Stroje"
+    class: "Řada"
+    name: "Jméno"
+    operator: "Provozovatel"
+    engine_type: "Typ stroje"
+    alternate_for: "Synonymum pro"
+    new: "Přidat nový stroj"
+    edit: "Upravit stroj"
+    back: "Zpět na seznam strojů"
+  occurrence:
+    occurrences: "Výskyty"
+    class: "Řada"
+    series: "Sériové číslo"
+    name: "Jméno"
+    literature: "Literatura"
+    volume: "Oddíl"
+    number: "Číslo"
+    year: "Ročník"
+    page: "Strana"
+    view: "Pohled"
+    quality: "Kvalita"
+    date: "Datum"
+    location: "Místo"
+    tender: "Tendr"
+    tender_series: "Sériové číslo tendru"
+    detail: "Detail"
+    operator: "Provozovatel"
+    maker: "Výrobce"
+    private: "Soukormý záznam"
+    note: "Poznámka"
+    new: "Přidat nový výskyt"
+    edit: "Upravit výskyt"
+    back: "Zpět na seznam výskytů"
+  search:
+    show: "Vyhledávání"
+    find: "Vyhledat"
+    clear: "Vymazat"
+    synonyms: "Hledat v synonymech"
+

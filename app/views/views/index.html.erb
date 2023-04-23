@@ -1,0 +1,32 @@
+<h1><%= t("view.views") %></h1>
+
+<%= link_to t('view.new'), new_view_url %>
+
+<table>
+  <tr>
+    <th><%= t('view.name') %></th>
+    <th><%= t('view.desc') %></th>
+    <th><%= t('view.edit') %></th>
+    <th></th>
+  </tr>
+  <% @views.each do |view| %>
+    <tr>
+      <td>
+        <%= view.name %>
+      </td>
+      <td>
+        <%= view.desc %>
+      </td>
+      <td>
+        <%= link_to view.name, edit_view_url(view.id) %>
+      </td>
+      <td>
+        <%= link_to t('app.delete'), view_url(view.id), data: {
+          method: :delete,
+          confirm: t('app.confirm')
+        } %>
+      </td>
+    </tr>
+  <% end %>
+<table>
+

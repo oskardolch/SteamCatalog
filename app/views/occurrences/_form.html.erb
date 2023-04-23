@@ -1,0 +1,95 @@
+<%= form_with model: [ @occurrence ] do |form| %>
+  <table style = "">
+    <tr>
+      <td class="nolines">
+        <p>
+          <%= form.label :engine_id, t('occurrence.class') %><br>
+          <%= form.select(:engine_id, engines_list, { include_blank: true }) %>
+        </p>
+        <p>
+          <%= form.label :series, t('occurrence.series') %><br>
+          <%= form.text_field :series %>
+        </p>
+        <p>
+          <%= form.label :name, t('occurrence.name') %><br>
+          <%= form.text_field :name %>
+        </p>
+        <p>
+          <%= form.label :literature_id, t('occurrence.literature') %><br>
+          <%= form.select(:literature_id, literatures_list, { include_blank: true }) %>
+        </p>
+        <p>
+          <%= form.label :volume, t('occurrence.volume') %><br>
+          <%= form.text_field :volume %>
+        </p>
+        <p>
+          <%= form.label :number, t('occurrence.number') %><br>
+          <%= form.text_field :number %>
+        </p>
+      </td>
+      <td class="nolines">
+        <p>
+          <%= form.label :year, t('occurrence.year') %><br>
+          <%= form.text_field :year %>
+        </p>
+        <p>
+          <%= form.label :page, t('occurrence.page') %><br>
+          <%= form.text_field :page %>
+        </p>
+        <p>
+          <%= form.label :view_id, t('occurrence.view') %><br>
+          <%= form.select(:view_id, views_list, { include_blank: true }) %>
+        </p>
+        <p>
+          <%= form.label :quality_id, t('occurrence.quality') %><br>
+          <%= form.select(:quality_id, qualities_list, { include_blank: true }) %>
+        </p>
+        <p>
+          <%= form.label :date, t('occurrence.date') %><br>
+          <%= form.text_field :date %>
+        </p>
+        <p>
+          <%= form.label :location, t('occurrence.location') %><br>
+          <%= form.text_area :location %>
+        </p>
+      </td>
+      <td class="nolines">
+        <p>
+          <%= form.label :tender, t('occurrence.tender') %><br>
+          <%= form.select(:tender, engines_list, { include_blank: true }) %>
+        </p>
+        <p>
+          <%= form.label :tender_series, t('occurrence.tender_series') %><br>
+          <%= form.text_field :tender_series %>
+        </p>
+        <p>
+          <%= form.label :detail, t('occurrence.detail') %><br>
+          <%= form.select(:detail, accessories_list, { include_blank: true }) %>
+        </p>
+        <p>
+          <%= form.label :operator_id, t('occurrence.operator') %><br>
+          <%= form.select(:operator_id, operators_list, { include_blank: true }) %>
+        </p>
+        <p>
+          <%= form.label :maker_id, t('occurrence.maker') %><br>
+          <%= form.select(:maker_id, makers_list, { include_blank: true }) %>
+        </p>
+        <p>
+          <%= form.check_box :private %>
+          <%= form.label :private, t('occurrence.private') %>
+        </p>
+        <p>
+          <%= form.label :note, t('occurrence.note') %><br>
+          <%= form.text_area :note %>
+        </p>
+        <p>
+          <%= form.submit %>
+        </p>
+        <p>
+          <%= link_to t('occurrence.back'), occurrences_url %>
+        </p>
+      </td>
+    </tr>
+  <table>
+<% end %>
+

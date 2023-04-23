@@ -1,0 +1,36 @@
+<h1><%= t("literature.literatures") %></h1>
+
+<%= link_to t('literature.new'), new_literature_url %>
+
+<table>
+  <tr>
+    <th><%= t('literature.title') %></th>
+    <th><%= t('literature.year') %></th>
+    <th><%= t('literature.editor') %></th>
+    <th><%= t('literature.edit') %></th>
+    <th></th>
+  </tr>
+  <% @literatures.each do |literature| %>
+    <tr>
+      <td>
+        <%= literature.title %>
+      </td>
+      <td>
+        <%= literature.year %>
+      </td>
+      <td>
+        <%= literature.editor.nil? ? "" : literature.editor.name %>
+      </td>
+      <td>
+        <%= link_to literature.title, edit_literature_url(literature.id) %>
+      </td>
+      <td>
+        <%= link_to t('app.delete'), literature_url(literature.id), data: {
+          method: :delete,
+          confirm: t('app.confirm')
+        } %>
+      </td>
+    </tr>
+  <% end %>
+<table>
+

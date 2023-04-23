@@ -1,0 +1,51 @@
+<%= form_with model: [ @user ] do |form| %>
+  <% if @user.persisted? %>
+    <h2><%= @user.name %></h2>
+  <% else %>
+    <p>
+      <%= form.label :name, t('user.name') %><br>
+      <%= form.text_field :name %>
+    </p>
+  <% end %>
+  <p>
+    <%= form.label :password, t('user.password') %><br>
+    <%= form.password_field :password %>
+  </p>
+  <p>
+    <%= form.label :password_confirmation, t('user.repeat_pwd') %><br>
+    <%= form.password_field :password_confirmation %>
+  </p>
+  <p>
+    <%= form.label :fullname, t('user.fullname') %><br>
+    <%= form.text_field :fullname %>
+  </p>
+  <p>
+    <%= form.check_box :admin %>
+    <%= form.label :admin, t('user.admin') %>
+  </p>
+  <p>
+    <%= form.label :note, t('app.note') %><br>
+    <%= form.text_area :note %>
+  </p>
+  <p>
+    <%= form.check_box :prefer_private %>
+    <%= form.label :prefer_private, t('user.prefer_private') %>
+  </p>
+  <p>
+    <%= form.label :pref_lang, t('app.language') %><br>
+    <%= form.select :pref_lang, options_for_select([["Česky", "cs"], ["English", "en"]], @user.pref_lang) %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <% if $current_user.admin %>
+    <p>
+      <%= link_to t('user.back'), users_url %>
+    </p>
+  <% else %>
+    <p>
+      <%= link_to t('app.back_home'), root_url %>
+    </p>
+  <% end %>
+<% end %>
+

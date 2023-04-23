@@ -1,0 +1,49 @@
+apt-get install git libpq-dev libffi-dev libyaml-dev
+
+rails new SteamCatalog -d postgresql
+edit config/database.yml and change postgres user
+
+edit Gemfile and
+-> uncomment bcrypt
+-> uncomment sassc-rails
+-> add gem 'bootstrap-sass'
+-> add gem 'jquery-rails'
+
+sudo bin/bundle install
+
+bin/rails generate model User name:string fullname:string password:digest admin:boolean note:text prefer_private:boolean pref_lang:string
+bin/rails generate model Editor name:string desc:text note:text
+bin/rails generate model Maker name:string desc:text location:text note:text
+bin/rails generate model Operator name:string desc:text note:text
+bin/rails generate model Quality name:string desc:text
+bin/rails generate model View name:string desc:text
+bin/rails generate model Accessory name:string maker:references
+bin/rails generate model Literature title:text year:string editor:references
+bin/rails generate model EngineType name:string desc:text
+bin/rails generate model Engine class_no:string name:string operator:references engine_type:references alternate_for:integer
+bin/rails generate model Occurrence engine:references series:string name:string literature:references volume:string number:string year:string page:string view:references quality:references date:string location:text tender:integer tender_series:string detail:integer user:references operator:references maker:references private:boolean note:text
+
+edit all db/migare files staring with accessories and change "null: false" to "null: true"
+for references, except the literature of occurrences
+
+db/seeds.rb => User.create(name: "admin", password: "Steam1Admin2", admin:true, note:"Steam Catalog built in account", prefer_private:false, pref_lang:"cs")
+
+bin/rails db:create
+bin/rails db:migrate
+bin/rails db:seed
+
+
+bin/rails generate controller Users
+bin/rails generate controller Logins show
+bin/rails generate controller Editors
+bin/rails generate controller Makers
+bin/rails generate controller Operators
+bin/rails generate controller Qualities
+bin/rails generate controller Views
+bin/rails generate controller Accessories
+bin/rails generate controller Literatures
+bin/rails generate controller EngineTypes
+bin/rails generate controller Engines
+bin/rails generate controller Occurrences
+bin/rails generate controller Searches
+

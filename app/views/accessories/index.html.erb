@@ -1,0 +1,32 @@
+<h1><%= t("accessory.accessories") %></h1>
+
+<%= link_to t('accessory.new'), new_accessory_url %>
+
+<table>
+  <tr>
+    <th><%= t('accessory.name') %></th>
+    <th><%= t('accessory.maker') %></th>
+    <th><%= t('accessory.edit') %></th>
+    <th></th>
+  </tr>
+  <% @accessories.each do |accessory| %>
+    <tr>
+      <td>
+        <%= accessory.name %>
+      </td>
+      <td>
+        <%= accessory.maker.nil? ? "" : accessory.maker.name %>
+      </td>
+      <td>
+        <%= link_to accessory.name, edit_accessory_url(accessory.id) %>
+      </td>
+      <td>
+        <%= link_to t('app.delete'), accessory_url(accessory.id), data: {
+          method: :delete,
+          confirm: t('app.confirm')
+        } %>
+      </td>
+    </tr>
+  <% end %>
+<table>
+

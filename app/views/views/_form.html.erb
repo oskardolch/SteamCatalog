@@ -1,0 +1,17 @@
+<%= form_with model: [ @view ] do |form| %>
+  <p>
+    <%= form.label :name, t('view.name') %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :desc, t('view.desc') %><br>
+    <%= form.text_area :desc %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <p>
+    <%= link_to t('view.back'), views_url %>
+  </p>
+<% end %>
+

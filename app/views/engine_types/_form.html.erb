@@ -1,0 +1,17 @@
+<%= form_with model: [ @engine_type ] do |form| %>
+  <p>
+    <%= form.label :name, t('engine_type.name') %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :desc, t('engine_type.desc') %><br>
+    <%= form.text_area :desc %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <p>
+    <%= link_to t('view.back'), engine_types_url %>
+  </p>
+<% end %>
+

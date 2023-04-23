@@ -1,0 +1,160 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   "true": "foo"
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  helpers:
+    submit:
+      search:
+        create: "Vyhledat"
+  app:
+    title: "Steam Catalogue"
+    welcome: "Welcome"
+    login: "Login"
+    logout: "Logout"
+    submit: "Submit"
+    note: "Note"
+    language: "Language"
+    delete: "Delete"
+    confirm: "Are you sure?"
+    edit: "Edit"
+    back_home: "Back to home"
+    login_required: "You must be logged in to view this page"
+    admin_required: "You must be admin to view this page"
+  user:
+    users: "Users"
+    name: "Name"
+    password: "Password"
+    repeat_pwd: "Repeat Password"
+    new: "Add new user"
+    edit: "Edit user"
+    fullname: "Full name"
+    admin: "Administrator"
+    prefer_private: "Prefer private records"
+    back: "Back to users list"
+    preferences: "Preferences"
+  editor:
+    editors: "Editors"
+    name: "Name"
+    desc: "Description"
+    new: "Add new editor"
+    edit: "Edit editor"
+    back: "Back to editors list"
+  maker:
+    makers: "Makers"
+    name: "Name"
+    desc: "Description"
+    location: "Location"
+    new: "Add new maker"
+    edit: "Edit maker"
+    back: "Back to makers list"
+  operator:
+    operators: "Operators"
+    name: "Name"
+    desc: "Description"
+    new: "Add new operator"
+    edit: "Edit operator"
+    back: "Back to operators list"
+  quality:
+    qualities: "Qualities"
+    name: "Name"
+    desc: "Description"
+    new: "Add new quality"
+    edit: "Edit quality"
+    back: "Back to qualities list"
+  view:
+    views: "Views"
+    name: "Name"
+    desc: "Description"
+    new: "Add new view"
+    edit: "Edit view"
+    back: "Back to views list"
+  accessory:
+    accessories: "Accessories"
+    name: "Name"
+    maker: "Maker"
+    new: "Add new accessory"
+    edit: "Edit accessory"
+    back: "Back to accessories list"
+  literature:
+    literatures: "Literatures"
+    title: "Title"
+    year: "Year"
+    editor: "Editor"
+    new: "Add new literature"
+    edit: "Edit literature"
+    back: "Back to literatures list"
+  engine_type:
+    engine_types: "Engine types"
+    name: "Name"
+    desc: "Description"
+    new: "Add new engine type"
+    edit: "Edit engine type"
+    back: "Back to engine types list"
+  engine:
+    engines: "Engines"
+    class: "Class"
+    name: "Name"
+    operator: "Operator"
+    engine_type: "Engine type"
+    alternate_for: "Synonym for"
+    new: "Add new engine"
+    edit: "Edit engine"
+    back: "Back to engines list"
+  occurrence:
+    occurrences: "Occurrences"
+    class: "Class"
+    series: "Series"
+    name: "Name"
+    literature: "Literature"
+    volume: "Volume"
+    number: "Number"
+    year: "Year"
+    page: "Page"
+    view: "View"
+    quality: "Quality"
+    date: "Date"
+    location: "Location"
+    tender: "Tender"
+    tender_series: "Tender series"
+    detail: "Detail"
+    operator: "Operator"
+    maker: "Maker"
+    private: "Private"
+    note: "Note"
+    new: "Add new occurrence"
+    edit: "Edit occurence"
+    back: "Back to occurrences list"
+  search:
+    show: "Home"
+    find: "Search"
+    clear: "Clear"
+    synonyms: "Search in synonyms"
+

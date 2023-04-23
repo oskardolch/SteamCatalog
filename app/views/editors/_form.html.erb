@@ -1,0 +1,21 @@
+<%= form_with model: [ @editor ] do |form| %>
+  <p>
+    <%= form.label :name, t('editor.name') %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :desc, t('editor.desc') %><br>
+    <%= form.text_area :desc %>
+  </p>
+  <p>
+    <%= form.label :note, t('app.note') %><br>
+    <%= form.text_area :note %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <p>
+    <%= link_to t('editor.back'), editors_url %>
+  </p>
+<% end %>
+

@@ -1,0 +1,32 @@
+<h1><%= t("operator.operators") %></h1>
+
+<%= link_to t('operator.new'), new_operator_url %>
+
+<table>
+  <tr>
+    <th><%= t('operator.name') %></th>
+    <th><%= t('operator.desc') %></th>
+    <th><%= t('operator.edit') %></th>
+    <th></th>
+  </tr>
+  <% @operators.each do |operator| %>
+    <tr>
+      <td>
+        <%= operator.name %>
+      </td>
+      <td>
+        <%= operator.desc %>
+      </td>
+      <td>
+        <%= link_to operator.name, edit_operator_url(operator.id) %>
+      </td>
+      <td>
+        <%= link_to t('app.delete'), operator_url(operator.id), data: {
+          method: :delete,
+          confirm: t('app.confirm')
+        } %>
+      </td>
+    </tr>
+  <% end %>
+<table>
+

@@ -1,0 +1,29 @@
+<%= form_with model: [ @engine ] do |form| %>
+  <p>
+    <%= form.label :class_no, t('engine.class') %><br>
+    <%= form.text_field :class_no %>
+  </p>
+  <p>
+    <%= form.label :name, t('engine.name') %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :operator_id, t('engine.operator') %><br>
+    <%= form.select(:operator_id, operators_list, { include_blank: true }) %>
+  </p>
+  <p>
+    <%= form.label :engine_type_id, t('engine.engine_type') %><br>
+    <%= form.select(:engine_type_id, engine_types_list, { include_blank: true }) %>
+  </p>
+  <p>
+    <%= form.label :alternate_for, t('engine.alternate_for') %><br>
+    <%= form.select(:alternate_for, engines_list, { include_blank: true }) %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <p>
+    <%= link_to t('engine.back'), engines_url %>
+  </p>
+<% end %>
+

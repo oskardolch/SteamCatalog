@@ -1,0 +1,40 @@
+<h1><%= t("engine.engines") %></h1>
+
+<%= link_to t('engine.new'), new_engine_url %>
+
+<table>
+  <tr>
+    <th><%= t('engine.class') %></th>
+    <th><%= t('engine.name') %></th>
+    <th><%= t('engine.operator') %></th>
+    <th><%= t('engine.engine_type') %></th>
+    <th><%= t('engine.edit') %></th>
+    <th></th>
+  </tr>
+  <% @engines.each do |engine| %>
+    <tr>
+      <td>
+        <%= engine.class_no %>
+      </td>
+      <td>
+        <%= engine.name %>
+      </td>
+      <td>
+        <%= engine.operator.nil? ? "" : engine.operator.name %>
+      </td>
+      <td>
+        <%= engine.engine_type.nil? ? "" : engine.engine_type.name %>
+      </td>
+      <td>
+        <%= link_to engine.class_no, edit_engine_url(engine.id) %>
+      </td>
+      <td>
+        <%= link_to t('app.delete'), engine_url(engine.id), data: {
+          method: :delete,
+          confirm: t('app.confirm')
+        } %>
+      </td>
+    </tr>
+  <% end %>
+<table>
+
