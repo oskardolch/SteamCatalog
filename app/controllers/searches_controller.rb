@@ -3,6 +3,8 @@ class SearchesController < ApplicationController
 
   $search_result = nil
   $serach_params = {
+    'engine_type_filter_id'=>'',
+    'engine_operator_filter_id'=>'',
     'engine_id'=>'',
     'series'=>'',
     'name'=>'',
@@ -30,6 +32,8 @@ class SearchesController < ApplicationController
   end
 
   def clear
+    $serach_params['engine_type_filter_id'] = ''
+    $serach_params['engine_operator_filter_id'] = ''
     $serach_params['engine_id'] = ''
     $serach_params['series'] = ''
     $serach_params['name'] = ''
@@ -53,6 +57,8 @@ class SearchesController < ApplicationController
   end
 
   def search
+    $serach_params['engine_type_filter_id'] = params['engine_type_filter_id']
+    $serach_params['engine_operator_filter_id'] = params['engine_operator_filter_id']
     $serach_params['engine_id'] = params['engine_id']
     $serach_params['series'] = params['series']
     $serach_params['name'] = params['name']
@@ -143,5 +149,13 @@ class SearchesController < ApplicationController
     search_query += "1=1"
     $search_result = Occurrence.where(search_query)
     redirect_to root_url
+  end
+
+  def filter_type
+    $serach_params['engine_type_filter_id'] = params['id']
+  end
+
+  def filter_operator
+    $serach_params['engine_operator_filter_id'] = params['id']
   end
 end

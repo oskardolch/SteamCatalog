@@ -171,4 +171,6 @@ cs:
     find: "Vyhledat"
     clear: "Vymazat"
     synonyms: "Hledat v synonymech"
+    engine_type: "Typ stroje"
+    operator: "Prvozovatel stroje"
 

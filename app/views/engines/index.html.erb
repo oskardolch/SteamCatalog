@@ -4,6 +4,23 @@
 
 <table>
   <tr>
+    <td class="nolines">
+      <p>
+        <%= label_tag('engine_type', t('search.engine_type')) %><br>
+        <%= select_tag('engine_type', options_for_select(engine_types_list, $engines_engine_type_filter), { include_blank: true, :onchange => "enginesEngineTypeCBChange(this.value);" }) %>
+      </p>
+    </td>
+    <td class="nolines">
+      <p>
+        <%= label_tag('operator_id', t('occurrence.operator')) %><br>
+        <%= select_tag('operator_id', options_for_select(operators_list, $engines_operator_filter), { include_blank: true, :onchange => "enginesOperatorCBChange(this.value);" }) %>
+      </p>
+    </td>
+  </td>
+</table>
+
+<table>
+  <tr>
     <th><%= t('engine.class') %></th>
     <th><%= t('engine.name') %></th>
     <th><%= t('engine.operator') %></th>

@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   get 'search', to: 'searches#show'
   post 'search', to: 'searches#search'
   get 'search/clear', to: 'searches#clear'
+  post 'engines/filter/type', to: 'engines#filter_type'
+  post 'engines/filter/operator', to: 'engines#filter_operator'
+  post 'search/filter/type', to: 'searches#filter_type'
+  post 'search/filter/operator', to: 'searches#filter_operator'
 
   resources :users
   resources :editors

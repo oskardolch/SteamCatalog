@@ -3,6 +3,14 @@
     <tr>
       <td class="nolines">
         <p>
+          <%= label_tag('engine_type_filter_id', t('search.engine_type')) %><br>
+          <%= select_tag('engine_type_filter_id', options_for_select(engine_types_list, $serach_params['engine_type_filter_id']), { include_blank: true, :onchange => "searchEngineTypeCBChange(this.value);" }) %>
+        </p>
+        <p>
+          <%= label_tag('engine_operator_filter_id', t('search.operator')) %><br>
+          <%= select_tag('engine_operator_filter_id', options_for_select(operators_list, $serach_params['engine_operator_filter_id']), { include_blank: true, :onchange => "searchOperatorCBChange(this.value);" }) %>
+        </p>
+        <p>
           <%= label_tag('engine_id', t('occurrence.class')) %><br>
           <%= select_tag('engine_id', options_for_select(engines_list, $serach_params['engine_id']), { include_blank: true }) %>
         </p>
@@ -56,7 +64,7 @@
       <td class="nolines">
         <p>
           <%= label_tag('tender', t('occurrence.tender')) %><br>
-          <%= select_tag('tender', options_for_select(engines_list, $serach_params['tender']), { include_blank: true }) %>
+          <%= select_tag('tender', options_for_select(tenders_list, $serach_params['tender']), { include_blank: true }) %>
         </p>
         <p>
           <%= label_tag('tender_series', t('occurrence.tender_series')) %><br>

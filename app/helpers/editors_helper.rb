@@ -1,5 +1,5 @@
 module EditorsHelper
   def editors_list
-    Editor.all.collect{|m| [m.name, m.id]}
+    Editor.order(:name).collect{|m| [m.name, m.id]}
   end
 end

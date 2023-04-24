@@ -1,6 +1,6 @@
 class EditorsController < ApplicationController
   def index
-    @editors = Editor.all
+    @editors = Editor.order(:name)
   end
 
   def show

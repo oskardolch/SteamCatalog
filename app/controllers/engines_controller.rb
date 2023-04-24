@@ -1,6 +1,24 @@
 class EnginesController < ApplicationController
+  $engines_engine_type_filter = nil
+  $engines_operator_filter = nil
+
   def index
-    @engines = Engine.all
+    sql_where = ''
+    if $engines_engine_type_filter.nil?
+      unless $engines_operator_filter.nil?
+        sql_where = "operator_id = #{$engines_operator_filter}"
+      end
+    else
+      sql_where = "engine_type_id = #{$engines_engine_type_filter}"
+      unless $engines_operator_filter.nil?
+        sql_where += " and operator_id = #{$engines_operator_filter}"
+      end
+    end
+    if sql_where == ''
+      @engines = Engine.order(:class_no)
+    else
+      @engines = Engine.where(sql_where).order(:class_no)
+    end
   end
 
   def show
@@ -43,6 +61,22 @@ class EnginesController < ApplicationController
     @engine.destroy
 
     redirect_to engines_path, status: :see_other
+  end
+
+  def filter_type
+    if params['id'] == ''
+      $engines_engine_type_filter = nil
+    else
+      $engines_engine_type_filter = params['id'].to_i
+    end
+  end
+
+  def filter_operator
+    if params['id'] == ''
+      $engines_operator_filter = nil
+    else
+      $engines_operator_filter = params['id'].to_i
+    end
   end
 
   private

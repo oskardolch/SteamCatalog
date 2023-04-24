@@ -1,6 +1,6 @@
 class MakersController < ApplicationController
   def index
-    @makers = Maker.all
+    @makers = Maker.order(:name)
   end
 
   def show

@@ -11,4 +11,5 @@ function langCBChange(langid){
   }).fail(function(html){
     console.log("Failed");
   });
-}
+};
+

@@ -157,4 +157,6 @@ en:
     find: "Search"
     clear: "Clear"
     synonyms: "Search in synonyms"
+    engine_type: "Engine type"
+    operator: "Engine operator"
 
