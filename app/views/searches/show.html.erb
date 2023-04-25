@@ -103,6 +103,16 @@
         <p>
           <%= submit_tag(t('search.find')) %>
         </p>
+        <% unless $current_user.nil? %>
+          <%= form_tag(search_filter_set_url) do %>
+            <p>
+              <%= submit_tag t('search.set_template') %> 
+            </p>
+          <% end %>
+          <p>
+            <%= link_to t('occurrence.new'), occurrence_new_with_template_url %>
+          </p>
+        <% end %>
         <p>
           <%= link_to t('search.clear'), search_clear_url %>
         </p>
@@ -130,6 +140,10 @@
     <th><%= t('occurrence.location') %></th>
     <th><%= t('occurrence.operator') %></th>
     <th><%= t('occurrence.maker') %></th>
+    <% unless $current_user.nil? %>
+      <th></th>
+      <th></th>
+    <% end %>
   </tr>
   <% $search_result.each do |occurrence| %>
     <tr>
@@ -184,6 +198,17 @@
       <td>
         <%= occurrence.maker.nil? ? "" : occurrence.maker.name %>
       </td>
+      <% unless $current_user.nil? %>
+        <td>
+          <%= link_to t('app.edit'), edit_occurrence_url(occurrence.id) %>
+        </td>
+        <td>
+          <%= link_to t('app.delete'), occurrence_url(occurrence.id), data: {
+            method: :delete,
+            confirm: t('app.confirm')
+          } %>
+        </td>
+      <% end %>
     </tr>
   <% end %>
 <table>

@@ -4,12 +4,12 @@ module EnginesHelper
     sql_where = ''
     if $serach_params['engine_type_filter_id'] == ''
       unless $serach_params['engine_operator_filter_id'] == ''
-        sql_where = "operator_id = #{$serach_params['engine_operator_filter_id']}"
+        sql_where = "operator_id = #{$serach_params['engine_operator_filter_id'].to_i}"
       end
     else
-      sql_where = "engine_type_id = #{$serach_params['engine_type_filter_id']}"
+      sql_where = "engine_type_id = #{$serach_params['engine_type_filter_id'].to_i}"
       unless $serach_params['engine_operator_filter_id'] == ''
-        sql_where += " and operator_id = #{$serach_params['engine_operator_filter_id']}"
+        sql_where += " and operator_id = #{$serach_params['engine_operator_filter_id'].to_i}"
       end
     end
     if sql_where == ''

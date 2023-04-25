@@ -3,6 +3,14 @@
     <tr>
       <td class="nolines">
         <p>
+          <%= label_tag('engine_type_filter_id', t('search.engine_type')) %><br>
+          <%= select_tag('engine_type_filter_id', options_for_select(engine_types_list, $serach_params['engine_type_filter_id']), { include_blank: true, :onchange => "searchEngineTypeCBChange(this.value);" }) %>
+        </p>
+        <p>
+          <%= label_tag('engine_operator_filter_id', t('search.operator')) %><br>
+          <%= select_tag('engine_operator_filter_id', options_for_select(operators_list, $serach_params['engine_operator_filter_id']), { include_blank: true, :onchange => "searchOperatorCBChange(this.value);" }) %>
+        </p>
+        <p>
           <%= form.label :engine_id, t('occurrence.class') %><br>
           <%= form.select(:engine_id, engines_list, { include_blank: true }) %>
         </p>
@@ -56,7 +64,7 @@
       <td class="nolines">
         <p>
           <%= form.label :tender, t('occurrence.tender') %><br>
-          <%= form.select(:tender, engines_list, { include_blank: true }) %>
+          <%= form.select(:tender, tenders_list, { include_blank: true }) %>
         </p>
         <p>
           <%= form.label :tender_series, t('occurrence.tender_series') %><br>
@@ -86,7 +94,7 @@
           <%= form.submit %>
         </p>
         <p>
-          <%= link_to t('occurrence.back'), occurrences_url %>
+          <%= link_to t('occurrence.back'), root_url %>
         </p>
       </td>
     </tr>

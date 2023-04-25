@@ -13,10 +13,12 @@ Rails.application.routes.draw do
   get 'search', to: 'searches#show'
   post 'search', to: 'searches#search'
   get 'search/clear', to: 'searches#clear'
+  post 'search/filter/set', to: 'searches#filter_set'
   post 'engines/filter/type', to: 'engines#filter_type'
   post 'engines/filter/operator', to: 'engines#filter_operator'
   post 'search/filter/type', to: 'searches#filter_type'
   post 'search/filter/operator', to: 'searches#filter_operator'
+  get 'occurrence/new_with_template', to: 'occurrences#new_with_template'
 
   resources :users
   resources :editors

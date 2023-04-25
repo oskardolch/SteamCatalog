@@ -56,7 +56,7 @@ class SearchesController < ApplicationController
     redirect_to root_url
   end
 
-  def search
+  def filter_set
     $serach_params['engine_type_filter_id'] = params['engine_type_filter_id']
     $serach_params['engine_operator_filter_id'] = params['engine_operator_filter_id']
     $serach_params['engine_id'] = params['engine_id']
@@ -77,6 +77,10 @@ class SearchesController < ApplicationController
     $serach_params['maker_id'] = params['maker_id']
     $serach_params['private'] = params['private']
     $serach_params['synonyms'] = params['synonyms']
+  end
+
+  def search
+    filter_set
 
     search_query = ""
     unless params['engine_id'].empty?
@@ -159,3 +163,4 @@ class SearchesController < ApplicationController
     $serach_params['engine_operator_filter_id'] = params['id']
   end
 end
+
